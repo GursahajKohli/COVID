@@ -32,6 +32,8 @@ The intensity of the cases can be seen by the intensity of the color and the col
 When we hover the pointer, we can get the exact number of cases of that country on the exact date on which we want from the timeline.
 The working can be seen in the GitHub link
 
+![Working of Visualization](https://github.com/GursahajKohli/COVID/blob/master/Covid_Prediction_App/ezgif.com-gif-maker%20(3).gif)
+
 
 **2. Implementation of COVID Detection through chest X-ray images**
 
@@ -39,9 +41,11 @@ Using CNN, we devised a method in which we were able to detect if the patient wa
 We got an accuracy of 97-98% on our deep learning model
 Although it was a good accuracy, but still it **can’t be treated as a diagnostic model** as it may leave some essential points that must be considered but are not detected by the model.
 
+![Detection of cases](https://github.com/GursahajKohli/COVID/blob/master/Covid_Prediction_App/ezgif.com-gif-maker%20(4).gif)
+
 # Results
 
-1. We were able to visualize the World map implementation and we could see that how the color on various countries first grew very dark and then later on lightened that showed the inclination and declination of the cases with time,  which can be seen in the screenshot as well.
+1. We were able to visualize the World map implementation and we could see that how the color on various countries first grew very dark and then later on lightened that showed the inclination and declination of the cases with time, which can be seen in the screenshot as well.
 
 2. Secondly, while predicting if the patient is COVID positive or COVID negative, we were able to achieve an accuracy of 97-98% which is a tremendous result as by this we assure that majority of the results would be what the patient’s actual state is.
 We even tested our model on certain images that were not included in our training model and not even tested in our test set, but still got amazing results for it.
