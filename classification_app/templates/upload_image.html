@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titleblock %} Upload Image {% endblock titleblock %}
+
+{% block bodyblock %}
+    <div class='container' style="margin-top:50px;padding:50px;text-align:center;border-radius:10px;background-color:#95afba" > 
+        <!-- <img class='img-thumbnail'src = "{% static 'img/coast.jpg' %}"> -->
+        <div style="padding-top:100px;text-align:left">
+            <h1 >Upload Your X-Ray Scan Image and Select Your Symptoms</h1>
+            <form method='POST' enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}   
+                <button class='btn btn-success' type='submit'>Upload</button>     
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}

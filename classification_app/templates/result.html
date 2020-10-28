@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block titleblock %} Result {% endblock titleblock %}
+{% load static %}
+
+{% block bodyblock %}
+    <div class="container" style="background-color:#95afba;border-radius: 10px;margin-top: 50px;padding:50px;">
+        {% if result == 'COVID NEGATIVE' %}
+        <div style="background-color: #55b967;margin-top: 10px;border-radius: 10px;padding: 10px;margin:10px;width: 400px">
+            <h3 style="color:black;">Result : {{ result }} </h3>
+        </div>
+        {% else %}
+        <div style="background-color:rgb(231, 52, 52);margin-top: 10px;border-radius: 10px;padding: 10px; margin:10px;width: 330px;">
+            <h3 style="color:black;">Result : {{ result }} </h3>
+        </div>
+        {% endif %}
+        <div class='row'>
+            <div class="column">
+                <img  width="500" height="500" class="img-thumbnail" src="{{ uploaded_file_url }}">
+            </div>
+
+            <div class="column">
+                <ul>
+                    <h3>COVID19 SYMPTOMS</h3>
+                    <ul>
+                        <li>Most common symptoms:
+                            <ul>
+                            <li>fever</li>
+                            <li>dry cough</li>
+                            <li>tiredness</li>
+                            </ul>
+                        </li>
+                        <li>Less common symptoms:
+                            <ul>
+                            <li>aches and pains</li>
+                            <li>sore throat</li>
+                            <li>diarrhoea</li>
+                            <li>conjunctivitis</li>
+                            <li>headache</li>
+                            <li>loss of taste or smell</li>
+                            </ul>
+                        </li>
+                        <li>Serious symptoms:
+                            <ul>
+                            <li>difficulty breathing or shortness of breath</li>
+                            <li>chest pain or pressure</li>
+                            <li>loss of speech or movement</li>
+                            </ul>
+                        </li>
+                        </ul>
+                </ul>  
+            </div>   
+            {% if result == 'COVID NEGATIVE'%}  
+            <div class="column">
+                <ul>
+                    <h3>Please follow these precations to prevent covid spread:</h3>
+                    <ul>
+                        <li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>
+                        <li>Maintain a safe distance from anyone who is coughing or sneezing.</li>
+                        <li>Wear a mask when physical distancing is not possible.</li>
+                        <li>Don’t touch your eyes, nose or mouth</li>
+                        <li>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</li>
+                        <li>Stay home if you feel unwell.</li>
+                        <li>If you have a fever, cough and difficulty breathing, seek medical attention.</li>
+
+                    </ul>
+                </ul>
+            </div>
+            {% else %} 
+            <div class="column">
+                <ul>
+                    <h3>Please follows these precautions until you get tested for covid</h3>
+                    <ul>
+                        <li>Don't make human contacts.</li>
+                        <li>Wear a mask when physical distancing is not possible.</li>
+                        <li>Eat healthy food which are rich in vitamins.</li>
+                        <li>Seek medical attention immediately.</li>
+                        <li>Contact nearest covid center.</li>
+
+                    </ul>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+
+        <div style="padding-top:10px">
+            <a href="{% url 'classification_app:upload_view' %}"><button class="btn btn-success" style="color:black;padding: 20px;border-radius: 10px;"><h5>Test for Another Xray</h5></button></a>
+        </div>
+
+        <div>
+            {% if result == 'COVID NEGATIVE' %}
+            <div style="background-color: #55b967;margin-top: 10px;border-radius: 10px;">
+                <h4 style="padding: 20px;">Your chances of being covid positive is low but if you have any serious covid symptoms please immediately contact your state's covid center </h4>
+            </div>
+            {% else %}
+            <div style="background-color: rgb(231, 52, 52);margin-top: 10px;border-radius: 10px">
+                <h4 style="padding: 20px;">Your chances of being covid positive is high so we would recommend you to contact Your States' Covid center and ask for further guidance</h4>
+            </div>
+            {% endif %}
+                <table class="table">
+                    <tr>
+                        <h2 style='text-align:center'>Helpline Numbers</h2>
+                    </tr>
+                    <tr>
+                        <div class="column">
+                            <tr>
+                                <th>Name of State</th>
+                                <th>Helpline Number</th>
+                            </tr>
+                            {% for state,nums in helpline_nums_states.items %}
+                                <tr>
+                                    <td>
+                                        {{ state }}
+                                    </td>
+                                    <td>
+                                        {{ nums }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </div>
+                        <br>
+                        <div class="column">
+                            <tr>
+                                <th>Name of Union Territory</th>
+                                <th>Helpline Number</th>
+                            </tr>
+                            {% for state,nums in helpline_nums_ut.items %}
+                                <tr>
+                                    <td>
+                                        {{ state }}
+                                    </td>
+                                    <td>
+                                        {{ nums }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </div>    
+                    </tr>    
+                </table> 
+        </div>
+    </div>
+{% endblock bodyblock %}
+    
